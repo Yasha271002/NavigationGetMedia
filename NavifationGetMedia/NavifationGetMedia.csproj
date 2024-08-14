@@ -8,4 +8,26 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+    <Folder Include="ViewModel\Popup\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CommonControls">
+      <HintPath>Library\CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>Library\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomKeyboard">
+      <HintPath>Library\CustomKeyboard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
