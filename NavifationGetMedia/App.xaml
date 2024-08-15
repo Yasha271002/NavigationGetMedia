@@ -16,8 +16,10 @@
 
                 <ResourceDictionary Source="Resources/Template/ButtonTemplate.xaml" />
                 <ResourceDictionary Source="Resources/Template/Icons.xaml" />
+                <ResourceDictionary Source="Resources/Template/ComboBoxTemplate.xaml" />
                 <ResourceDictionary Source="Resources/Template/ItemsControlTemplate.xaml" />
                 <ResourceDictionary Source="Resources/Template/TextBoxTemplate.xaml" />
+                <ResourceDictionary Source="Resources/Template/ScrollViewerTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

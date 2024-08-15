@@ -6,7 +6,8 @@
                 <ControlTemplate TargetType="RadioButton">
                     <Border x:Name="border" 
                             Style="{DynamicResource RadioButtonBorderStyle}"
-                            Background="Transparent">
+                            Background="Transparent"
+                            Height="143">
                         <TextBlock x:Name="textBlock"
                                    Text="{TemplateBinding Content}"
                                    Style="{DynamicResource ButtonTextBlockStyle}"
@@ -67,6 +68,15 @@
     <ControlTemplate x:Key="ButtonTemplatePopup">
         <Border Style="{DynamicResource ButtonBorderPopupStyle}">
             <TextBlock Style="{DynamicResource ButtonPopupStyle}"/>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CloseKeyboardButtonTemplate">
+        <Border Width="118"
+                Height="118"
+                Background="White"
+                CornerRadius="300">
+            <ContentPresenter ContentTemplate="{DynamicResource CloseKeyboardSvg}" Width="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
     </ControlTemplate>
 </ResourceDictionary>

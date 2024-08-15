@@ -3,11 +3,10 @@
     <Style x:Key="BorderNavigationMenuStyle" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource MainProjectColor}"/>
         <Setter Property="Width" Value="3840"/>
-        <Setter Property="Height" Value="334"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
     </Style>
 
-    <Style x:Key="BorderNavigationButtonsStyle" TargetType="Border">
+    <Style x:Key="NavigationButtonsBorder" TargetType="Border">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Opacity" Value="0.2"/>
         <Setter Property="Width" Value="1200"/>
@@ -17,18 +16,14 @@
     </Style>
 
     <Style x:Key="RadioButtonBorderStyle" TargetType="Border">
-        <Setter Property="Width" Value="588"/>
-        <Setter Property="Height" Value="124"/>
         <Setter Property="CornerRadius" Value="24"/>
         <Setter Property="Opacity" Value="0.8"/>
     </Style>
 
     <Style x:Key="TextBoxBorder" TargetType="Border">
-        <Setter Property="Width" Value="885"/>
-        <Setter Property="Height" Value="143"/>
         <Setter Property="CornerRadius" Value="32"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="2"/>
     </Style>
 
     <Style x:Key="KeyboardBorder" TargetType="Border">
@@ -54,7 +49,7 @@
         <Setter Property="Background" Value="White"/>
     </Style>
     
-    <Style x:Key="PopupTextBlockStyle" TargetType="Border">
+    <Style x:Key="PopupTextBlockBorder" TargetType="Border">
         <Setter Property="Background" Value="#D7F1F5"/>
         <Setter Property="CornerRadius" Value="600"/>
         <Setter Property="Padding" Value="24 40 24 40"/>

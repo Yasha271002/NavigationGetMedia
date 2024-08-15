@@ -6,4 +6,5 @@
     </LinearGradientBrush>
     <SolidColorBrush x:Key="TextColor" Color="#373737"/>
     <SolidColorBrush x:Key="MainColor" Color="#23BABF"/>
+    <SolidColorBrush x:Key="BackgroundPageColor" Color="#EBEFF2"/>
 </ResourceDictionary>

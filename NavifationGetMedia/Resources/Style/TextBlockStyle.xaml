@@ -13,6 +13,12 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
+    
+    <Style x:Key="TextBlockComboboxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
 
     <Style x:Key="TextBlockNameStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
         <Setter Property="FontSize" Value="54"/>

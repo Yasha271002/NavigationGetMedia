@@ -7,6 +7,7 @@
         xmlns:helpers="clr-namespace:NavifationGetMedia.Helpers"
         xmlns:controls="clr-namespace:NavifationGetMedia.View.Controls"
         xmlns:window="clr-namespace:NavifationGetMedia.ViewModel.Window"
+        xmlns:views="clr-namespace:CustomKeyboard.Views;assembly=CustomKeyboard"
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
@@ -17,63 +18,54 @@
     <Viewbox>
         <Grid Width="3840"
               Height="2160">
-            <Frame
-                x:Name="MainFrame"
-                NavigationUIVisibility="Hidden"
-                Source="../Page/PersonalPage.xaml"
-                Height="1826"
-                VerticalAlignment="Bottom"/>
-            <controls:BackdropControl
-                EnableAnimation="True"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                BackdropBrush="Black"
-                IsOpen="{Binding IsPopupOpen,Source={x:Static helpers:NavigationManager.Instance}}"
-                BackdropOpacity="0.5"
-                Panel.ZIndex="1000"
-                d:IsHidden="True">
-                <Frame NavigationUIVisibility="Hidden"
-                       Focusable="False"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"
-                       Initialized="PopupFrame_OnInitialized" />
-            </controls:BackdropControl>
-            <Border
-                Style="{DynamicResource BorderNavigationMenuStyle}">
-                <StackPanel Orientation="Horizontal"
-                            Margin="60">
-                    <ContentPresenter
-                        ContentTemplate="{DynamicResource LogoSvg}"
-                        Width="520" />
-                    <Grid
-                        Width="1200"
-                        Height="140"
-                        Margin="110 0 0 0">
-                        <Border Style="{DynamicResource BorderNavigationButtonsStyle}"/>
-                        <Grid
-                            Margin="8">
-                            <RadioButton Style="{DynamicResource AnimatedRadioButtonStyle}"
-                                         Content="НАВИГАЦИЯ"
-                                         Width="588"
-                                         Height="124"
-                                         HorizontalAlignment="Left"
-                                         Command="{Binding SwitchPageCommand}"
-                                         CommandParameter="{Binding MapModel}"/>
-                            <RadioButton Style="{DynamicResource AnimatedRadioButtonStyle}"
-                                         Content="ПЕРСОНАЛ"
-                                         Width="588"
-                                         Height="124"
-                                         HorizontalAlignment="Right"
-                                         Command="{Binding SwitchPageCommand}"
-                                         CommandParameter="{Binding PersonalModels}"/>
-                        </Grid>
-                    </Grid>
-                    
-                    
+            <Grid Background="{DynamicResource BackgroundPageColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <controls:HeaderControl/>
+                
+                <Frame Grid.Row="1"
+                    x:Name="MainFrame"
+                    NavigationUIVisibility="Hidden"
+                    Source="../Page/PersonalPage.xaml"
+                    VerticalAlignment="Bottom"/>
+                <controls:BackdropControl Grid.Row="1"
+                    EnableAnimation="True"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    BackdropBrush="Black"
+                    IsOpen="{Binding IsPopupOpen,Source={x:Static helpers:NavigationManager.Instance}}"
+                    BackdropOpacity="0.5"
+                    Panel.ZIndex="1000"
+                    d:IsHidden="True">
+                    <Frame NavigationUIVisibility="Hidden"
+                           Focusable="False"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Initialized="PopupFrame_OnInitialized" />
+                </controls:BackdropControl>
+            </Grid>
+            <controls:BackdropControl x:Name="MainBackdropControl"
+                                      EnableAnimation="True"
+                                      VerticalContentAlignment="Center"
+                                      HorizontalContentAlignment="Center"
+                                      BackdropBrush="{DynamicResource MainColor}"
+                                      IsOpen="{Binding IsKeyboardVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      BackdropOpacity="0.5"
+                                      Panel.ZIndex="1000"
+                                      d:IsHidden="True">
+                <StackPanel HorizontalAlignment="Center"
+                            Margin="0 1322 0 0">
+                    <Border Style="{DynamicResource KeyboardBorder}">
+                        <views:KeyboardControl VerticalAlignment="Center"/>
+                    </Border>
+                    <Button Template="{DynamicResource CloseKeyboardButtonTemplate}"
+                            Margin="0 60 0 0"/>
                 </StackPanel>
-            </Border>
-            <controls:TextBoxControl
-                Margin="60 0 0 0"/>
+
+            </controls:BackdropControl>
+            
         </Grid>
     </Viewbox>
 </Window>

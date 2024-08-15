@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="NavifationGetMedia.View.Controls.HeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavifationGetMedia.View.Controls"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:window="clr-namespace:NavifationGetMedia.ViewModel.Window"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <window:MainWindowViewModel/>
+    </UserControl.DataContext>
+    <Border
+        Style="{DynamicResource BorderNavigationMenuStyle}">
+        <StackPanel Orientation="Horizontal"
+                    Height="334">
+            <ContentPresenter
+                ContentTemplate="{DynamicResource LogoSvg}"
+                Width="520" Height="124"
+                Margin="60 0 0 0"/>
+            <Grid
+                Margin="110 0 0 0">
+                <Border Style="{DynamicResource NavigationButtonsBorder}"/>
+                <Grid>
+                    <RadioButton Style="{DynamicResource AnimatedRadioButtonStyle}"
+                                 Content="НАВИГАЦИЯ"
+                                 Width="588"
+                                 HorizontalAlignment="Left"
+                                 Command="{Binding SwitchPageCommand}"
+                                 CommandParameter="{Binding MapModel}"/>
+                    <RadioButton Style="{DynamicResource AnimatedRadioButtonStyle}"
+                                 Content="ПЕРСОНАЛ"
+                                 Width="588"
+                                 HorizontalAlignment="Right"
+                                 Command="{Binding SwitchPageCommand}"
+                                 CommandParameter="{Binding PersonalModels}"/>
+                </Grid>
+            </Grid>
+            <Grid Margin="60 0 0 0"
+                  Height="143"
+                  Width="885">
+                <Border x:Name="MainGrid"/>
+                <TextBox 
+                    Template="{DynamicResource TextBoxTemplate}"
+                    Tag="Поиск объекта"
+                    x:Name="TextBox"
+                    Panel.ZIndex="3000">
+                    <TextBox.Style>
+                        <Style BasedOn="{StaticResource TextBoxTextStyle}" TargetType="TextBox">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource MainProjectColor}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource MainProjectColor}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="GotFocus">
+                            <b:InvokeCommandAction Command="{Binding ShowKeyBoardCommand}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="LostFocus">
+                            <b:InvokeCommandAction Command="{Binding HideKeyBoardCommand}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            
+            <ComboBox Width="869"
+                      Height="143"
+                      Tag="Доктора"
+                      Margin="60 0 0 0"
+                      Focusable="False">
+            </ComboBox>
+        </StackPanel>
+    </Border>
+</UserControl>

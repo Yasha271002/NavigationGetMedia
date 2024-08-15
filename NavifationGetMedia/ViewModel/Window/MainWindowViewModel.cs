@@ -20,11 +20,27 @@ namespace NavifationGetMedia.ViewModel.Window
             set => SetAndNotify(value);
         }
 
+        public bool IsKeyboardVisible
+        {
+            get => GetOrCreate<bool>();
+            set => SetAndNotify(value);
+        }
+
         public MainWindowViewModel()
         {
             PersonalModels = new ObservableCollection<PersonalModel>();
             GetAllPersonalInfo();
         }
+
+        public ICommand ShowKeyBoardCommand => GetOrCreate(new RelayCommand(f =>
+        {
+            IsKeyboardVisible = true;
+        }));
+        
+        public ICommand HideKeyBoardCommand => GetOrCreate(new RelayCommand(f =>
+        {
+            IsKeyboardVisible = false;
+        }));
 
         public ICommand SwitchPageCommand => GetOrCreate(new RelayCommand(f =>
         {
