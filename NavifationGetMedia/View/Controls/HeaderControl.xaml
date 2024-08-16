@@ -26,6 +26,7 @@
                                  Content="НАВИГАЦИЯ"
                                  Width="588"
                                  HorizontalAlignment="Left"
+                                 IsChecked="{Binding SelectPageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  Command="{Binding SwitchPageCommand}"
                                  CommandParameter="{Binding MapModel}"/>
                     <RadioButton Style="{DynamicResource AnimatedRadioButtonStyle}"
@@ -71,9 +72,18 @@
             
             <ComboBox Width="869"
                       Height="143"
-                      Tag="Доктора"
                       Margin="60 0 0 0"
                       Focusable="False">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+                        <Setter Property="Tag" Value="Категории объектов"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectPageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                <Setter Property="Tag" Value="Отделения"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
             </ComboBox>
         </StackPanel>
     </Border>

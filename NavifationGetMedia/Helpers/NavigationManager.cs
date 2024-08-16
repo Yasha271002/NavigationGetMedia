@@ -7,6 +7,7 @@ namespace NavifationGetMedia.Helpers
 {
     public enum PageTypes
     {
+        MapPage,
         PersonalPage,
         None
     }

@@ -20,6 +20,12 @@ namespace NavifationGetMedia.ViewModel.Window
             set => SetAndNotify(value);
         }
 
+        public bool SelectPageButton
+        {
+            get => GetOrCreate<bool>();
+            set => SetAndNotify(value);
+        }
+
         public bool IsKeyboardVisible
         {
             get => GetOrCreate<bool>();
@@ -28,7 +34,9 @@ namespace NavifationGetMedia.ViewModel.Window
 
         public MainWindowViewModel()
         {
+            MapModel = new MapModel();
             PersonalModels = new ObservableCollection<PersonalModel>();
+            SelectPageButton = true;
             GetAllPersonalInfo();
         }
 
@@ -47,10 +55,12 @@ namespace NavifationGetMedia.ViewModel.Window
             if (f == PersonalModels)
             {
                 CommonCommands.NavigateCommand.Execute(PersonalModels);
+                SelectPageButton = false;
             }
             else
             {
                 CommonCommands.NavigateCommand.Execute(MapModel);
+                SelectPageButton = true;
             }
         }));
 

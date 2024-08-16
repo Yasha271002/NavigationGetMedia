@@ -28,6 +28,10 @@ namespace NavifationGetMedia.Helpers
                 {
                     DataContext = new PersonalPageViewModel(personalModels)
                 },
+                MapModel mapModel => new MapPage
+                {
+                    DataContext = new MapPageViewModel(mapModel)
+                },
                 _ => null
             };
             return page;

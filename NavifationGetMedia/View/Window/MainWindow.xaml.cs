@@ -11,6 +11,7 @@ namespace NavifationGetMedia.View.Window
         public MainWindow()
         {
             InitializeComponent();
+
             NavigationManager.MainFrame = MainFrame.NavigationService;
         }
 

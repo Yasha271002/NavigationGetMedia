@@ -30,10 +30,22 @@ namespace NavifationGetMedia.View.Controls
             set { SetValue(TextBoxIsFocusedProperty, value); }
         }
 
+        public static readonly DependencyProperty SelectPageButtonProperty = DependencyProperty.Register(
+            nameof(SelectPageButton), typeof(bool), typeof(HeaderControl), new PropertyMetadata(default(bool)));
+
+        public bool SelectPageButton
+        {
+            get { return (bool)GetValue(SelectPageButtonProperty); }
+            set { SetValue(SelectPageButtonProperty, value); }
+        }
+
         public HeaderControl()
         {
             InitializeComponent();
-            this.DataContext = Application.Current.MainWindow.DataContext;
+            if (Application.Current.MainWindow != null)
+            {
+                this.DataContext = Application.Current.MainWindow.DataContext;
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
                         <TextBlock x:Name="textBlock"
                                    Text="{TemplateBinding Content}"
                                    Style="{DynamicResource ButtonTextBlockStyle}"
-                                   Foreground="{DynamicResource TextColor}"/>
+                                   Foreground="White"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">

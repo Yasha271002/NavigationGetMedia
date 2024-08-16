@@ -23,12 +23,13 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
-                <controls:HeaderControl/>
+                <controls:HeaderControl
+                    SelectPageButton="{Binding SelectPageButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 
                 <Frame Grid.Row="1"
                     x:Name="MainFrame"
                     NavigationUIVisibility="Hidden"
-                    Source="../Page/PersonalPage.xaml"
+                    Source="../Page/MapPage.xaml"
                     VerticalAlignment="Bottom"/>
                 <controls:BackdropControl Grid.Row="1"
                     EnableAnimation="True"
