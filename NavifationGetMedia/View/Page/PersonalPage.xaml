@@ -1,0 +1,48 @@
+﻿<Page x:Class="NavifationGetMedia.View.Page.PersonalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NavifationGetMedia.View.Page"
+      xmlns:page="clr-namespace:NavifationGetMedia.ViewModel.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="2160" d:DesignWidth="3840"
+      Title="PersonalPage"
+      d:DataContext="{d:DesignInstance page:PersonalPageViewModel}">
+
+    <Grid>
+        <ScrollViewer Style="{DynamicResource ScrollViewer}">
+            <ItemsControl Margin="60 80"
+                          ItemsSource="{Binding PersonalModel}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding Departament}"
+                                       Style="{DynamicResource TextBlockDepartametStyle}"
+                                       Margin="0 0 0 72"/>
+                            <ItemsControl ItemsSource="{Binding PersonalInfo}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Template="{DynamicResource PersonalButtonTemplate}"
+                                                Width="570"
+                                                Height="714"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

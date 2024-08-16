@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="ButtonTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="TextBlockDepartametStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource MainColor}"/>
+        <Setter Property="FontSize" Value="64"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    
+    <Style x:Key="TextBlockComboboxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="TextBlockNameStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
+        <Setter Property="FontSize" Value="54"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="TextBlockSpecializationStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Foreground" Value="#555555"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="DescriptionPopupStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="Foreground" Value="#555555"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="ButtonPopupStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="CategoryPopupStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockDepartametStyle}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+</ResourceDictionary>
